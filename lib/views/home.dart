@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:music_player_application/consts/colors.dart';
 import 'package:music_player_application/consts/text_style.dart';
 import 'package:music_player_application/controllers/player_controller.dart';
+import 'package:music_player_application/views/player.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class Home extends StatelessWidget {
@@ -88,8 +89,9 @@ class Home extends StatelessWidget {
                                   )
                                 : null,
                             onTap: () {
-                              controller.playSong(
-                                  snapshot.data![index].uri, index);
+                              // controller.playSong(snapshot.data![index].uri, index);
+                              Get.to(()=> Player(data: snapshot.data!));
+                              controller.playSong(snapshot.data![index].uri, index);
                             },
                           )),
                     );
